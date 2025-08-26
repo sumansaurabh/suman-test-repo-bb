@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { TimeRange } from '@/types/currency';
 import { getDateRange, formatDateForAPI } from '@/lib/currency-utils';
 
+/**
+ * Fetch historical currency exchange rates based on provided parameters.
+ *
+ * This function retrieves the base and target currencies, validates them, and checks the specified time range.
+ * It generates historical data for the currency pair, including optional OHLC data, and calculates summary statistics
+ * such as current rate, high, low, average, and volatility. The results are returned in a structured JSON response.
+ *
+ * @param request - The NextRequest object containing the request details, including search parameters for currency and time range.
+ * @returns A JSON response containing the success status, historical data, and summary statistics.
+ * @throws Error If an error occurs during data fetching or processing.
+ */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -125,6 +136,18 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/**
+ * Handles POST requests to fetch historical data for specified target currencies.
+ *
+ * The function extracts the base currency, target currencies, range, and OHLC inclusion from the request body.
+ * It validates the input and fetches historical data for each target currency from an external API.
+ * If the fetch is successful, it compiles the results; otherwise, it records an error for that target.
+ * Finally, it returns a JSON response containing the success status and the collected data or an error message.
+ *
+ * @param request - The NextRequest object containing the request data.
+ * @returns A JSON response with the success status and historical data or an error message.
+ * @throws Error If an error occurs during the processing of the request.
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
