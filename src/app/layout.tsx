@@ -84,6 +84,9 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Renders the root layout for the application, including metadata and structured data for financial services.
+ */
 export default function RootLayout({
   children,
 }: {
