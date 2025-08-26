@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { currencyAPI, transformToExchangeRates, getFallbackRates } from '@/lib/currency-api';
 import { DEFAULT_BASE_CURRENCY, DEFAULT_TARGET_CURRENCIES } from '@/types/currency';
 
+/**
+ * Fetch the latest exchange rates for specified currencies.
+ *
+ * This function retrieves the latest exchange rates based on the provided base currency and target currencies. It validates the currency codes, attempts to fetch live data from the currency API, and falls back to predefined rates if the live data is unavailable or if the API request fails. The response includes the rates, a timestamp, and the source of the data.
+ *
+ * @param request - The NextRequest object containing the request details, including search parameters for base currency, target currencies, and fallback option.
+ * @returns A JSON response containing the success status, exchange rates, and additional metadata.
+ * @throws Error If there is an internal server error or if the base currency code is invalid.
+ */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -86,6 +95,18 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/**
+ * Handles the POST request to fetch the latest currency exchange rates.
+ *
+ * The function extracts the base currency and target currencies from the request body, validates the input,
+ * and retrieves the latest exchange rates using the currencyAPI. If requested, it also calculates random
+ * changes to the rates. The response is returned in JSON format, indicating success or failure based on
+ * the API call results.
+ *
+ * @param request - The NextRequest object containing the request data.
+ * @returns A JSON response containing the success status, exchange rates, and additional information.
+ * @throws Error If an internal server error occurs during processing.
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
