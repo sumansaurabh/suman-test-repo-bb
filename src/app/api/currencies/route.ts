@@ -61,6 +61,11 @@ const EXTENDED_CURRENCIES = [
   { code: 'ARS', name: 'Argentine Peso', symbol: '$' }
 ];
 
+/**
+ * Handles the GET request to fetch supported currencies.
+ *
+ * This function attempts to retrieve supported currencies from a live API. If the API call is successful, it transforms the data into a usable format and returns it along with popular currencies. If the API call fails or returns an unsuccessful response, it defaults to a predefined set of fallback currencies and includes a warning message. In case of any errors during the API call, it also returns the fallback data.
+ */
 export async function GET() {
   try {
     // Try to fetch from live API
