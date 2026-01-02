@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# सुमन-परीक्षण-भाण्डागारम्
 
-## Getting Started
+एषा [Next.js](https://nextjs.org) प्रकल्पः [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) इत्यनेन निर्मितः अस्ति।
 
-First, run the development server:
+## आरम्भः
+
+प्रथमतः, विकास-सेवकं चालयन्तु:
 
 ```bash
 npm run dev
-# or
+# अथवा
 yarn dev
-# or
+# अथवा
 pnpm dev
-# or
+# अथवा
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) इति स्थानं स्वस्य जालदर्शके उद्घाटयन्तु। फलं द्रष्टुं शक्यते।
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+पृष्ठं सम्पादयितुम् `app/page.tsx` इति सञ्चिकां परिवर्तयन्तु। सञ्चिका-सम्पादने सति पृष्ठं स्वयमेव नूतनीक्रियते।
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+अयं प्रकल्पः [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) इत्यस्य उपयोगेन [Geist](https://vercel.com/font) इति अक्षरमालां स्वचालितरीत्या अनुकूलयति। एषा Vercel कृते नवीना अक्षरमाला अस्ति।
 
-## Learn More
+## अधिकं ज्ञातुम्
 
-To learn more about Next.js, take a look at the following resources:
+Next.js विषये अधिकं ज्ञातुम् एतानि साधनानि पश्यन्तु:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js प्रलेखनम्](https://nextjs.org/docs) - Next.js विशेषताः API च ज्ञातुम्
+- [Next.js शिक्षणम्](https://nextjs.org/learn) - अन्तर्क्रियात्मकं Next.js पाठमालम्
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[Next.js GitHub भाण्डागारम्](https://github.com/vercel/next.js) अवलोकयन्तु - भवताम् प्रतिक्रिया योगदानं च स्वागतम्!
 
-## Deploy on Vercel
+## Vercel इत्यत्र प्रयोजनम्
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+भवताम् Next.js अनुप्रयोगं प्रयोजयितुं सरलतमः उपायः [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) इत्यस्य उपयोगः अस्ति। एषा Next.js निर्मातृभिः निर्मिता मञ्चः अस्ति।
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+अधिक-विवरणेभ्यः [Next.js प्रयोजन-प्रलेखनम्](https://nextjs.org/docs/app/building-your-application/deploying) पश्यन्तु।
