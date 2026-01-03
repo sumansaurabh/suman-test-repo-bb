@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 项目简介 (简体中文)
+
+这是一个使用 [Next.js](https://nextjs.org) 创建的项目。
+
+### 快速开始
+
+首先，运行开发服务器：
+
+```bash
+npm run dev
+# 或者
+yarn dev
+# 或
+pnpm dev
+# 或
+bun dev
+```
+
+然后在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看效果。
+
+你可以修改 `app/page.tsx` 文件来编辑页面，页面会自动更新。
