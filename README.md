@@ -1,3 +1,27 @@
+## 重要说明（中文 | Mandarin Chinese）
+
+这是一个基于 [Next.js](https://nextjs.org) 的项目，已经使用 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) 启动。
+
+### 快速开始
+
+首先，运行开发服务器：
+
+```bash
+npm run dev
+# 或者
+yarn dev
+# 或
+pnpm dev
+# 或
+bun dev
+```
+
+在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看效果。
+
+你可以通过修改 `app/page.tsx` 来开始编辑页面。每当你修改代码时，页面会自动更新。
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
