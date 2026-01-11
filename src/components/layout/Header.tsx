@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -113,6 +114,16 @@ export function Navigation({ activeSection = 'dashboard', onSectionChange }: Nav
               <span>{section.label}</span>
             </Button>
           ))}
+          <Link href="/top-up">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex items-center gap-2 whitespace-nowrap"
+            >
+              <span className="text-sm">💳</span>
+              <span>Top Up</span>
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>

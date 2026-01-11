@@ -31,7 +31,7 @@ export function CurrencySelector({
   const selectedCurrencyData = currencies.find(c => c.code === selectedCurrency);
 
   const filteredCurrencies = useMemo(() => {
-    let filtered = searchTerm 
+    const filtered = searchTerm 
       ? searchCurrencies(currencies, searchTerm)
       : currencies;
     
@@ -210,7 +210,7 @@ export function MultiCurrencySelector({
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredCurrencies = useMemo(() => {
-    let filtered = searchTerm 
+    const filtered = searchTerm 
       ? searchCurrencies(currencies, searchTerm)
       : currencies;
     
@@ -226,11 +226,6 @@ export function MultiCurrencySelector({
       onCurrenciesChange([...selectedCurrencies, currencyCode]);
     }
   };
-
-  const selectedCurrencyNames = selectedCurrencies
-    .map(code => currencies.find(c => c.code === code)?.code)
-    .filter(Boolean)
-    .join(', ');
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

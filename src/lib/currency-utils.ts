@@ -13,7 +13,7 @@ export function formatCurrency(
       minimumFractionDigits: 2,
       maximumFractionDigits: 6
     }).format(amount);
-  } catch (error) {
+  } catch {
     // Fallback if currency code is not supported
     return `${amount.toFixed(4)} ${currencyCode}`;
   }
@@ -196,11 +196,11 @@ export function isValidAmount(amount: string | number): boolean {
 }
 
 // Local storage utilities for user preferences
-export function saveToLocalStorage(key: string, data: any): void {
+export function saveToLocalStorage(key: string, data: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(data));
-  } catch (error) {
-    console.warn('Failed to save to localStorage:', error);
+  } catch {
+    console.warn('Failed to save to localStorage');
   }
 }
 
@@ -208,8 +208,8 @@ export function loadFromLocalStorage<T>(key: string, defaultValue: T): T {
   try {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : defaultValue;
-  } catch (error) {
-    console.warn('Failed to load from localStorage:', error);
+  } catch {
+    console.warn('Failed to load from localStorage');
     return defaultValue;
   }
 }
@@ -217,8 +217,8 @@ export function loadFromLocalStorage<T>(key: string, defaultValue: T): T {
 export function removeFromLocalStorage(key: string): void {
   try {
     localStorage.removeItem(key);
-  } catch (error) {
-    console.warn('Failed to remove from localStorage:', error);
+  } catch {
+    console.warn('Failed to remove from localStorage');
   }
 }
 

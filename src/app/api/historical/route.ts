@@ -63,7 +63,16 @@ export async function GET(request: NextRequest) {
       const rate = baseRate + trendFactor + randomFactor + seasonalFactor;
       const adjustedRate = Math.max(0.001, rate); // Ensure positive rate
       
-      const dataPoint: any = {
+      const dataPoint: {
+        date: string;
+        rate: number;
+        timestamp: number;
+        open?: number;
+        high?: number;
+        low?: number;
+        close?: number;
+        volume?: number;
+      } = {
         date: dateStr,
         rate: Number(adjustedRate.toFixed(6)),
         timestamp: currentDate.getTime()
@@ -113,8 +122,8 @@ export async function GET(request: NextRequest) {
       }
     });
 
-  } catch (error) {
-    console.error('Historical data API error:', error);
+  } catch {
+    console.error('Historical data API error');
     return NextResponse.json(
       { 
         error: 'Failed to fetch historical data',
@@ -170,8 +179,8 @@ export async function POST(request: NextRequest) {
       }
     });
 
-  } catch (error) {
-    console.error('Historical data POST API error:', error);
+  } catch {
+    console.error('Historical data POST API error');
     return NextResponse.json(
       { 
         error: 'Failed to fetch historical data',

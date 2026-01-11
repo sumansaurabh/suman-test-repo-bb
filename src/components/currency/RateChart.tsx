@@ -60,14 +60,14 @@ export function RateChart({
   const chartColor = isPositive ? '#16a34a' : '#dc2626';
 
   // Custom tooltip
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: { active?: boolean, payload?: { value: number }[], label?: string }) => {
     if (active && payload && payload.length) {
       const rate = payload[0].value;
       return (
         <div className="bg-white p-3 border rounded-lg shadow-lg">
           <p className="font-medium">{pairName}</p>
           <p className="text-sm text-gray-600">
-            {formatDateForDisplay(label)}
+            {label ? formatDateForDisplay(label) : ''}
           </p>
           <p className="text-lg font-mono font-semibold">
             {formatRate(rate)}
@@ -300,7 +300,6 @@ interface MultiCurrencyChartProps {
 export function MultiCurrencyChart({
   currencies,
   baseCurrency,
-  timeRange,
   data,
   loading = false,
   className = ''
@@ -321,7 +320,7 @@ export function MultiCurrencyChart({
   }
 
   // Prepare combined data for multi-line chart
-  const combinedData: any[] = [];
+  const combinedData: Record<string, string | number | null>[] = [];
   const allDates = new Set<string>();
 
   // Collect all unique dates
@@ -331,7 +330,7 @@ export function MultiCurrencyChart({
 
   // Create combined data points
   Array.from(allDates).sort().forEach(date => {
-    const dataPoint: any = { date };
+    const dataPoint: Record<string, string | number | null> = { date };
     currencies.forEach(currency => {
       const currencyData = data[currency];
       const point = currencyData?.find(p => p.date === date);
@@ -379,7 +378,7 @@ export function MultiCurrencyChart({
                 tickFormatter={(value) => formatRate(value, 4)}
               />
               <Tooltip
-                formatter={(value: any, name: string) => [
+                formatter={(value: number, name: string) => [
                   formatRate(value, 4),
                   `${baseCurrency}/${name}`
                 ]}

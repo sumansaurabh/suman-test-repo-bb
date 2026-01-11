@@ -13,7 +13,6 @@ import { Currency, TimeRange, ChartType, POPULAR_CURRENCIES, DEFAULT_TARGET_CURR
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function CurrencyExchangePage() {
   // State management
@@ -76,7 +75,7 @@ export default function CurrencyExchangePage() {
   const losers = ratesWithChanges.filter(rate => rate.changePercent24h! < 0).length;
 
   // Handlers
-  const handleRateClick = (rate: any) => {
+  const handleRateClick = (rate: { base: string; target: string }) => {
     setSelectedPair({ base: rate.base, target: rate.target });
     setActiveSection('charts');
   };
@@ -109,7 +108,7 @@ export default function CurrencyExchangePage() {
         totalRates={rates.length}
         gainers={gainers}
         losers={losers}
-        lastUpdate={lastUpdated}
+        lastUpdate={lastUpdated ?? undefined}
       />
 
       {/* Main Content */}
