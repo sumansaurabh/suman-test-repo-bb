@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 项目简介
 
-## Getting Started
+本项目是基于 [Next.js](https://nextjs.org) 框架，通过 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) 创建的网页应用。
 
-First, run the development server:
+## 🚀 快速开始
+
+1. 安装依赖：
+
+```bash
+npm install
+```
+
+2. 启动开发服务器：
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. 在浏览器中访问 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+编辑 `app/page.tsx` 文件后，页面会自动实时刷新。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 学习资源
 
-## Learn More
+- [Next.js 官方文档](https://nextjs.org/docs)
+- [Next.js 入门教程](https://nextjs.org/learn)
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ 字体优化
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+本项目使用 [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) 自动优化并加载 [Geist](https://vercel.com/font) 字体。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ☁️ 部署
 
-## Deploy on Vercel
+推荐通过 [Vercel 平台](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) 一键部署。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+查看 [Next.js 部署文档](https://nextjs.org/docs/app/building-your-application/deploying) 获取更多细节。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 许可证
+
+本项目遵循 MIT 开源许可证。
+
