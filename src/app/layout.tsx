@@ -51,7 +51,8 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'CurrencyX - Professional currency exchange dashboard with real-time rates',
-      },\n    ],
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
