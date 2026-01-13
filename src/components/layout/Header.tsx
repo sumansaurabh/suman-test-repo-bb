@@ -135,7 +135,7 @@ interface StatusBarProps {
   totalRates?: number;
   gainers?: number;
   losers?: number;
-  lastUpdate?: number;
+  lastUpdate?: number | null;
   className?: string;
 }
 

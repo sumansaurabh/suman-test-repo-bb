@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
+import Image from 'next/image';
 import Header from '../components/layout/Header';
 
 const inter = Inter({ 
@@ -158,7 +159,7 @@ export default function RootLayout({
         {/* Analytics placeholder */}
         <noscript>
           <div style={{ display: 'none' }}>
-            <img src="https://placehold.co/1x1?text=Analytics+Pixel" alt="" />
+            <Image src="https://placehold.co/1x1?text=Analytics+Pixel" alt="" width={1} height={1} />
           </div>
         </noscript>
       </body>

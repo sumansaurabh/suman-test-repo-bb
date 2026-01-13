@@ -13,7 +13,7 @@ const API_KEY = 'your_api_key_here'; // In production, this would be from env va
 
 // Cache configuration
 const CACHE_DURATION = 30000; // 30 seconds
-const cache = new Map<string, { data: any; timestamp: number }>();
+const cache = new Map<string, { data: unknown; timestamp: number }>();
 
 class CurrencyAPIClient {
   private async fetchWithCache<T>(url: string, cacheKey: string): Promise<APIResponse<T>> {
@@ -23,7 +23,7 @@ class CurrencyAPIClient {
       if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
         return {
           success: true,
-          data: cached.data,
+          data: cached.data as T,
           timestamp: Date.now()
         };
       }
@@ -67,7 +67,7 @@ class CurrencyAPIClient {
     const cacheKey = `pair_${baseCurrency}_${targetCurrency}`;
     
     try {
-      const response = await this.fetchWithCache<any>(url, cacheKey);
+      const response = await this.fetchWithCache<{ conversion_rate: number }>(url, cacheKey);
       if (response.success && response.data) {
         return {
           success: true,
@@ -75,7 +75,12 @@ class CurrencyAPIClient {
           timestamp: response.timestamp
         };
       }
-      return response as APIResponse<{ rate: number }>;
+      // If not successful, return an error response matching the expected type
+      return {
+        success: false,
+        error: response.error || 'Failed to retrieve specific rate',
+        timestamp: response.timestamp
+      } as APIResponse<{ rate: number }>;
     } catch (error) {
       return {
         success: false,

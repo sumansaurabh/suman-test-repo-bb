@@ -6,7 +6,7 @@ const AboutPage = () => {
       <h1 className="text-4xl font-bold mb-6 text-center">About Me</h1>
       <div className="max-w-3xl mx-auto text-lg leading-relaxed">
         <p className="mb-4">
-          Hello! I'm a passionate software engineer with a knack for building robust and scalable applications.
+          Hello! I&apos;m a passionate software engineer with a knack for building robust and scalable applications.
           My journey in the world of technology began with a curiosity for how things work, which quickly evolved
           into a dedication to creating meaningful solutions.
         </p>
@@ -17,7 +17,7 @@ const AboutPage = () => {
         </p>
         <p className="mb-4">
           Beyond coding, I enjoy exploring new programming paradigms, contributing to open-source projects,
-          and staying up-to-date with the latest industry trends. When I'm not at the keyboard,
+          and staying up-to-date with the latest industry trends. When I&apos;m not at the keyboard,
           you can find me hiking, reading, or experimenting with new recipes in the kitchen.
         </p>
         <p>

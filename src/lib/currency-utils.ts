@@ -13,7 +13,8 @@ export function formatCurrency(
       minimumFractionDigits: 2,
       maximumFractionDigits: 6
     }).format(amount);
-  } catch (error) {
+  } catch (_error) {
+    console.error("Error in formatCurrency:", _error);
     // Fallback if currency code is not supported
     return `${amount.toFixed(4)} ${currencyCode}`;
   }
@@ -196,7 +197,7 @@ export function isValidAmount(amount: string | number): boolean {
 }
 
 // Local storage utilities for user preferences
-export function saveToLocalStorage(key: string, data: any): void {
+export function saveToLocalStorage(key: string, data: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(data));
   } catch (error) {

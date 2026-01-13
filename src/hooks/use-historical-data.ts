@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { HistoricalRate, TimeRange, ChartData } from '@/types/currency';
-import { currencyAPI, transformToHistoricalRates } from '@/lib/currency-api';
 import { getDateRange, formatDateForAPI } from '@/lib/currency-utils';
 
 interface UseHistoricalDataOptions {

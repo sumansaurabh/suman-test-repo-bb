@@ -6,7 +6,7 @@ const ContactPage = () => {
       <h1 className="text-4xl font-bold mb-6 text-center">Get in Touch</h1>
       <div className="max-w-3xl mx-auto text-lg leading-relaxed text-center mb-8">
         <p className="mb-4">
-          I'm always excited to connect with new people and discuss potential collaborations, job opportunities, or just chat about tech!
+          I&apos;m always excited to connect with new people and discuss potential collaborations, job opportunities, or just chat about tech!
           Feel free to send me a message using the form below, or connect with me on social media.
         </p>
       </div>

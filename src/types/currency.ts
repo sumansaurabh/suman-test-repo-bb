@@ -33,6 +33,17 @@ export interface HistoricalRate {
   close?: number;
 }
 
+export interface HistoricalDataPoint {
+  date: string;
+  rate: number;
+  timestamp: number;
+  open?: number;
+  high?: number;
+  low?: number;
+  close?: number;
+  volume?: number;
+}
+
 export interface ChartData {
   date: string;
   rate: number;

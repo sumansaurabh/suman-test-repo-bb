@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Header, Navigation, StatusBar } from '@/components/layout/Header';
+import Header, { Navigation, StatusBar } from '@/components/layout/Header';
 import { ExchangeRateGrid } from '@/components/currency/ExchangeRateCard';
 import { ConversionCalculator } from '@/components/currency/ConversionCalculator';
 import { RateChart } from '@/components/currency/RateChart';
@@ -9,11 +9,10 @@ import { MarketSummary, CurrencyOverview } from '@/components/currency/MarketSum
 import { CurrencySelector, MultiCurrencySelector } from '@/components/currency/CurrencySelector';
 import { useExchangeRates } from '@/hooks/use-exchange-rates';
 import { useHistoricalData } from '@/hooks/use-historical-data';
-import { Currency, TimeRange, ChartType, POPULAR_CURRENCIES, DEFAULT_TARGET_CURRENCIES } from '@/types/currency';
+import { Currency, TimeRange, ChartType, ExchangeRate, POPULAR_CURRENCIES, DEFAULT_TARGET_CURRENCIES } from '@/types/currency';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function CurrencyExchangePage() {
   // State management
@@ -76,7 +75,7 @@ export default function CurrencyExchangePage() {
   const losers = ratesWithChanges.filter(rate => rate.changePercent24h! < 0).length;
 
   // Handlers
-  const handleRateClick = (rate: any) => {
+  const handleRateClick = (rate: ExchangeRate) => {
     setSelectedPair({ base: rate.base, target: rate.target });
     setActiveSection('charts');
   };

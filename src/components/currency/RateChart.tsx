@@ -59,15 +59,29 @@ export function RateChart({
   const changeColor = isPositive ? 'text-green-600' : 'text-red-600';
   const chartColor = isPositive ? '#16a34a' : '#dc2626';
 
+interface TooltipPayloadItem {
+  dataKey: string;
+  name: string;
+  value: number;
+  unit?: string;
+  color?: string;
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayloadItem[];
+  label?: string;
+}
+
   // Custom tooltip
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       const rate = payload[0].value;
       return (
         <div className="bg-white p-3 border rounded-lg shadow-lg">
           <p className="font-medium">{pairName}</p>
           <p className="text-sm text-gray-600">
-            {formatDateForDisplay(label)}
+            {formatDateForDisplay(label ?? '')}
           </p>
           <p className="text-lg font-mono font-semibold">
             {formatRate(rate)}
@@ -300,7 +314,6 @@ interface MultiCurrencyChartProps {
 export function MultiCurrencyChart({
   currencies,
   baseCurrency,
-  timeRange,
   data,
   loading = false,
   className = ''
@@ -320,8 +333,13 @@ export function MultiCurrencyChart({
     );
   }
 
+  interface MultiCurrencyChartDataPoint {
+    date: string;
+    [key: string]: string | number | null;
+  }
+
   // Prepare combined data for multi-line chart
-  const combinedData: any[] = [];
+  const combinedData: MultiCurrencyChartDataPoint[] = [];
   const allDates = new Set<string>();
 
   // Collect all unique dates
@@ -331,7 +349,7 @@ export function MultiCurrencyChart({
 
   // Create combined data points
   Array.from(allDates).sort().forEach(date => {
-    const dataPoint: any = { date };
+    const dataPoint: MultiCurrencyChartDataPoint = { date };
     currencies.forEach(currency => {
       const currencyData = data[currency];
       const point = currencyData?.find(p => p.date === date);
@@ -379,7 +397,7 @@ export function MultiCurrencyChart({
                 tickFormatter={(value) => formatRate(value, 4)}
               />
               <Tooltip
-                formatter={(value: any, name: string) => [
+                formatter={(value: number, name: string) => [
                   formatRate(value, 4),
                   `${baseCurrency}/${name}`
                 ]}

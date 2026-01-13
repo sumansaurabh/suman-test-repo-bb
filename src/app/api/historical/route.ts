@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { TimeRange } from '@/types/currency';
+import { TimeRange, HistoricalDataPoint } from '@/types/currency';
 import { getDateRange, formatDateForAPI } from '@/lib/currency-utils';
 
 export async function GET(request: NextRequest) {
@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
       const rate = baseRate + trendFactor + randomFactor + seasonalFactor;
       const adjustedRate = Math.max(0.001, rate); // Ensure positive rate
       
-      const dataPoint: any = {
+      const dataPoint: HistoricalDataPoint = {
         date: dateStr,
         rate: Number(adjustedRate.toFixed(6)),
         timestamp: currentDate.getTime()
