@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
+import Header from '../components/layout/Header';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -50,8 +51,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'CurrencyX - Professional currency exchange dashboard with real-time rates',
-      },
-    ],
+      },\n    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -150,6 +150,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased bg-gray-50`}>
         <div id="app-root">
+          <Header />
           {children}
         </div>
         

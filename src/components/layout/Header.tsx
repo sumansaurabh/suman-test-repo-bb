@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -11,11 +10,11 @@ interface HeaderProps {
   refreshing?: boolean;
 }
 
-export function Header({ 
-  lastUpdated, 
-  isConnected = true, 
+export default function Header({
+  lastUpdated,
+  isConnected = true,
   onRefresh,
-  refreshing = false 
+  refreshing = false
 }: HeaderProps) {
   return (
     <header className="border-b bg-white sticky top-0 z-50">
@@ -23,19 +22,32 @@ export function Header({
         <div className="flex items-center justify-between">
           {/* Logo and Title */}
           <div className="flex items-center gap-4">
-            <div className="text-2xl font-bold text-gray-900">
+            <Link href="/" className="text-2xl font-bold text-gray-900">
               💱 CurrencyX
-            </div>
+            </Link>
             <Badge variant="secondary" className="hidden md:inline-flex">
               Real-time Exchange Monitor
             </Badge>
           </div>
 
+          {/* Main Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="/portfolio" className="text-gray-600 hover:text-gray-900 font-medium">
+              Portfolio
+            </Link>
+            <Link href="/about" className="text-gray-600 hover:text-gray-900 font-medium">
+              About
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900 font-medium">
+              Contact
+            </Link>
+          </nav>
+
           {/* Status and Actions */}
           <div className="flex items-center gap-4">
             {/* Connection Status */}
             <div className="flex items-center gap-2">
-              <div 
+              <div
                 className={`w-2 h-2 rounded-full ${
                   isConnected ? 'bg-green-500' : 'bg-red-500'
                 }`}
@@ -71,14 +83,14 @@ export function Header({
           </div>
         </div>
 
-        {/* Navigation/Breadcrumb */}
-        <nav className="mt-4">
+        {/* Navigation/Breadcrumb - This might be removed or repurposed if main nav is sufficient */}
+        {/* <nav className="mt-4">
           <div className="flex items-center gap-4 text-sm">
             <span className="text-gray-600">Dashboard</span>
             <span className="text-gray-400">•</span>
             <span className="text-gray-900 font-medium">Exchange Rates</span>
           </div>
-        </nav>
+        </nav> */}
       </div>
     </header>
   );
@@ -127,10 +139,10 @@ interface StatusBarProps {
   className?: string;
 }
 
-export function StatusBar({ 
-  totalRates = 0, 
-  gainers = 0, 
-  losers = 0, 
+export function StatusBar({
+  totalRates = 0,
+  gainers = 0,
+  losers = 0,
   lastUpdate,
   className = ''
 }: StatusBarProps) {
