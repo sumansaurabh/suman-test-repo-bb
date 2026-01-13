@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -71,12 +72,16 @@ export function Header({
           </div>
         </div>
 
-        {/* Navigation/Breadcrumb */}
+        {/* Navigation Links */}
         <nav className="mt-4">
           <div className="flex items-center gap-4 text-sm">
-            <span className="text-gray-600">Dashboard</span>
+            <Link href="/portfolio" className="text-gray-600 hover:text-gray-900 font-medium">
+              Portfolio
+            </Link>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-900 font-medium">Exchange Rates</span>
+            <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium">
+              Currency Converter
+            </Link>
           </div>
         </nav>
       </div>
