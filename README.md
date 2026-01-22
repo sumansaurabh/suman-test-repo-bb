@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 货币汇率监控仪表盘
 
-## Getting Started
+该项目是一个现代化的货币汇率监控 Web 应用，支持多币种实时汇率、历史走势和转化计算，适合外汇交易者、投资者及金融爱好者实时跟踪市场变动。
 
-First, run the development server:
+## 主要功能
+- 实时查看各主要货币的当前汇率
+- 查询和对比历史汇率趋势（支持图表展示）
+- 货币换算计算器
+- 可自定义关注币种列表
+- 主题切换（明亮/夜间模式）
+- 响应式布局，适配各种设备
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 技术栈
+- 前端框架：Next.js + React
+- 样式与组件：Tailwind CSS, Radix UI
+- 图表展示：Recharts
+- 其他依赖：Zod, react-hook-form 等
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 快速开始
+1. 安装依赖包：
+   ```bash
+   npm install
+   # 或 `pnpm install`
+   ```
+2. 本地运行开发环境：
+   ```bash
+   npm run dev
+   ```
+3. 构建并启动生产环境：
+   ```bash
+   npm run build
+   npm start
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 贡献指南
+欢迎社区成员提 Issues 和 Pull Request 进行功能扩展或问题修复。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 项目状态
+当前版本已实现主要功能，欢迎体验与反馈。
