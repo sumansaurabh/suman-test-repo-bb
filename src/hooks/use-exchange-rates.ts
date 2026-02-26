@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ExchangeRate } from '@/types/currency';
 import { currencyAPI, transformToExchangeRates, getFallbackRates } from '@/lib/currency-api';
 import { calculateChange } from '@/lib/currency-utils';
@@ -32,22 +32,22 @@ export function useExchangeRates({
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<number | null>(null);
   const [isConnected, setIsConnected] = useState(true);
-  const [previousRates, setPreviousRates] = useState<Map<string, number>>(new Map());
+  const previousRatesRef = useRef<Map<string, number>>(new Map());
 
   const fetchRates = useCallback(async () => {
     try {
       setError(null);
-      
+
       const response = await currencyAPI.getLatestRates(baseCurrency);
-      
+
       if (response.success && response.data) {
         const newRates = transformToExchangeRates(response.data, targetCurrencies);
-        
+
         // Calculate changes from previous rates
         const ratesWithChanges = newRates.map(rate => {
           const pairId = `${rate.base}/${rate.target}`;
-          const previousRate = previousRates.get(pairId);
-          
+          const previousRate = previousRatesRef.current.get(pairId);
+
           if (previousRate) {
             const { absoluteChange, percentageChange } = calculateChange(rate.rate, previousRate);
             return {
@@ -56,21 +56,21 @@ export function useExchangeRates({
               changePercent24h: percentageChange
             };
           }
-          
+
           return rate;
         });
-        
+
         setRates(ratesWithChanges);
         setLastUpdated(response.timestamp);
         setIsConnected(true);
-        
+
         // Update previous rates for next comparison
-        const newPreviousRates = new Map();
+        const newPreviousRates = new Map<string, number>();
         ratesWithChanges.forEach(rate => {
           newPreviousRates.set(`${rate.base}/${rate.target}`, rate.rate);
         });
-        setPreviousRates(newPreviousRates);
-        
+        previousRatesRef.current = newPreviousRates;
+
       } else {
         throw new Error(response.error || 'Failed to fetch exchange rates');
       }
@@ -78,20 +78,19 @@ export function useExchangeRates({
       console.error('Error fetching exchange rates:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
       setIsConnected(false);
-      
-      // Use fallback data if available
-      if (rates.length === 0) {
+
+      // Use fallback data if no rates have been loaded yet
+      setRates(current => {
+        if (current.length > 0) return current;
         const fallbackRates = getFallbackRates(baseCurrency);
-        if (targetCurrencies) {
-          setRates(fallbackRates.filter(rate => targetCurrencies.includes(rate.target)));
-        } else {
-          setRates(fallbackRates);
-        }
-      }
+        return targetCurrencies
+          ? fallbackRates.filter(rate => targetCurrencies.includes(rate.target))
+          : fallbackRates;
+      });
     } finally {
       setLoading(false);
     }
-  }, [baseCurrency, targetCurrencies, previousRates, rates.length]);
+  }, [baseCurrency, targetCurrencies]);
 
   const refreshRates = useCallback(async () => {
     setLoading(true);

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -45,19 +45,12 @@ export function ConversionCalculator({
 
   const [manualMode, setManualMode] = useState(false);
 
-  // Auto-convert when not in manual mode
-  useEffect(() => {
-    if (!manualMode && amount && isValidAmount(amount)) {
-      convert();
-    }
-  }, [amount, fromCurrency, toCurrency, convert, manualMode]);
-
   const handleAmountChange = (value: string) => {
     // Allow only numbers and decimal point
     const cleanValue = value.replace(/[^0-9.]/g, '');
     // Prevent multiple decimal points
     const parts = cleanValue.split('.');
-    const finalValue = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : cleanValue;
+    const finalValue = parts.length > 2 ? parts[0] + '.' + parts[1] : cleanValue;
     setAmount(finalValue);
   };
 

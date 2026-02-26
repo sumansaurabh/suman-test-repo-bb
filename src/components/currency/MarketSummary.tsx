@@ -146,7 +146,7 @@ export function MarketSummary({ rates, loading = false, className = '' }: Market
         <div className="grid grid-cols-2 gap-4 border-t pt-4">
           <div>
             <div className="text-sm text-gray-500">24h Volume</div>
-            <div className="font-bold">$${totalVolume}</div>
+            <div className="font-bold">${totalVolume}</div>
           </div>
           <div>
             <div className="text-sm text-gray-500">Active Markets</div>
