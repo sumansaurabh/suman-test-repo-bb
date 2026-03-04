@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CurrencyX - Real-time Exchange Monitor
+
+CurrencyX is a modern, real-time currency exchange monitoring application built with Next.js. It provides users with live exchange rates, historical data charts, and conversion tools in a professional dashboard interface.
+
+## Features
+
+- **Real-time Dashboard**: Monitor live exchange rates with automatic updates every 30 seconds.
+- **Market Summary**: View top gainers, losers, and overall market statistics at a glance.
+- **Interactive Charts**: Visualize historical currency data with customizable time ranges and chart types.
+- **Conversion Calculator**: Quickly convert between different currencies using real-time rates.
+- **Multi-Currency Support**: Select a base currency and monitor multiple target currencies simultaneously.
+- **Responsive Design**: Fully responsive interface optimized for both desktop and mobile devices.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **UI Library**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **State Management**: React Hooks (useState, useEffect)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Ensure you have the following installed:
+- Node.js (v18 or higher)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sumansaurabh/suman-test-repo-bb.git
+   cd suman-test-repo-bb
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Project Structure
+
+```
+/src
+  /app           # Next.js App Router pages and API routes
+  /components    # Reusable UI components
+    /currency    # Currency-specific components (Calculator, Charts, etc.)
+    /layout      # Layout components (Header, etc.)
+    /ui          # Shadcn UI primitive components
+  /hooks         # Custom React hooks for data fetching
+  /lib           # Utility functions and API helpers
+  /types         # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
