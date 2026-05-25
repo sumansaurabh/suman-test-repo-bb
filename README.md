@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CurrencyX - Real-time Exchange Monitor
 
-## Getting Started
+CurrencyX is a modern, high-performance currency exchange rate monitor and conversion platform built with Next.js 15. It provides real-time data, historical trends, and professional trading insights.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Live Exchange Rates**: Monitor global currency pairs with automatic updates every 30 seconds.
+- **Conversion Calculator**: Professional-grade calculator for instant currency conversions.
+- **Historical Charts**: Interactive charts to visualize currency performance over different time ranges (1D, 1W, 1M, 1Y, 5Y).
+- **Market Summary**: Comprehensive overview of gainers, losers, and general market sentiment.
+- **Multi-Currency Support**: Access to hundreds of global currencies via reliable API integration.
+- **Responsive Design**: Fully optimized for desktop and mobile experiences.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) & [Shadcn UI](https://ui.shadcn.com/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Data Fetching**: Custom hooks with built-in caching mechanism.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏁 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js 20+ 
+- npm / pnpm / yarn / bun
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sumansaurabh/suman-test-repo-bb.git
+   cd suman-test-repo-bb
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add your ExchangeRate-API key:
+   ```env
+   NEXT_PUBLIC_EXCHANGE_RATE_API_KEY=your_api_key_here
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+
+## 🔑 API Configuration
+
+This project uses [ExchangeRate-API](https://www.exchangerate-api.com/) for currency data. 
+
+**Note on Security**: Never hardcode your API keys in the source code. Ensure the `NEXT_PUBLIC_EXCHANGE_RATE_API_KEY` is set in your environment variables.
+
+## 📝 License
+
+This project is private and for internal use.
+
+---
+Built with ❤️ for the Currency Trading Community.
